@@ -1,0 +1,181 @@
+CREATE DATABASE Egar_HW
+go
+USE Egar_HW
+go
+
+/*
+ 1.для создания таблиц(5 таблиц)
+*/
+
+CREATE TABLE post(
+	[postnumber] [nchar](6) NULL,
+	[sname] [nchar](20) NULL,
+	[rating] [int] NULL,
+	[sity] [nchar](20) NULL,
+) ON [PRIMARY]
+
+
+CREATE TABLE det(
+    [detnumber] [nchar](6) NULL,
+	[name] [nchar](20) NULL,
+	[color] [nchar](20) NULL,
+	[weight] int NULL,
+	[sity] [nchar](20) NULL
+) ON [PRIMARY]
+
+
+CREATE TABLE prod(
+	[prodnumber] [nchar](10) NULL,
+	[name] [nchar](20) NULL,
+	[sity] [nchar](20) NULL
+) ON [PRIMARY]
+
+
+CREATE TABLE sale(
+	id int identity(1,1)  not NULL,
+	[postnumber] [nchar](6) NULL,
+	[detnumber] [nchar](6) NULL,
+	[prodnumber] [nchar](6) NULL,
+	[qamount] [int] NULL
+) ON [PRIMARY]
+
+CREATE TABLE bike(
+	[id] [int] not NULL,
+	[name] [nchar](55) NULL,
+	[type] [nchar](55) NULL,
+	[вate_of_issue] [nchar](12) NULL,
+	[cost] [int] NULL
+) 
+
+
+/*
+2.Воспользоваться Alter table для добавления полей или FK
+*/
+
+ALTER TABLE sale ADD
+datepost datetime NULL
+GO
+sp_Help sale
+go
+
+/*
+3.Наполнить таблицы данными(для справочников не менее 3 строк, для остальных не менее 5 строк).
+*/
+
+/*
+Заполнение таблицы post
+*/
+insert into post values('S1','Смит',20,'Лондон')
+insert into post values('S2','Джонс',10,'Париж')
+insert into post values('S3','Блейк',30,'Париж')
+insert into post values('S4','Кларк',20,'Лондон')
+insert into post values('S5','Адамс',30,'Афины')
+
+/*
+Заполнение таблицы det
+*/
+insert into det values('P1','Гайка','Красный',12,'Лондон')
+insert into det values('P2','Болт','Зеленый',17,'Париж')
+insert into det values('P3','Винт','Голубой',17,'Рим')
+insert into det values('P4','Винт','Красный',14,'Лондон')
+insert into det values('P5','Кулачок','Голубой',12,'Париж')
+insert into det values('P6','Блюм','Красный',19,'Лондон')
+
+/*
+Заполнение таблицы prod
+*/
+insert into prod values('J1','Жесткий диск','Париж')
+insert into prod values('J2','Перфоратор','Рим')
+insert into prod values('J3','Считыватель','Афины')
+insert into prod values('J4','Принтер','Афины')
+insert into prod values('J5','Флоппи-диск','Лондон')
+insert into prod values('J6','Терминал','Осло')
+insert into prod values('J7','Лента','Лондон')
+
+/*
+Заполнение таблицы sale
+*/
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S1','P1','J1',200)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S1','P1','J4',700)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S2','P3','J1',400)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S2','P3','J2',200)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S2','P3','J3',200)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S2','P3','J4',500)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S2','P3','J5',600)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S2','P3','J6',400)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S2','P3','J7',800)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S2','P5','J2',100)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S3','P3','J1',200)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S3','P4','J2',500)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S4','P6','J3',300)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S4','P6','J7',300)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S5','P2','J2',200)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S5','P2','J4',100)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S5','P5','J5',500)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S5','P5','J7',100)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S5','P6','J2',200)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S5','P1','J4',100)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S5','P3','J4',200)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S5','P4','J4',800)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S5','P5','J4',400)
+insert into sale (postnumber, detnumber, prodnumber, qamount) values('S5','P6','J4',500)
+
+/*
+Заполнение таблицы bike
+*/
+insert into bike (id,name,type,вate_of_issue,cost) values(1,'aventon','fixed-gear','2018',700)
+insert into bike (id,name,type,вate_of_issue,cost) values(2,'cinelli','fixed-gear','2017',900)
+insert into bike (id,name,type,вate_of_issue,cost) values(1,'bear-bike','fixed-gear','2019',350)
+
+
+/*
+ 4.Написать скрипты для удаления и изменения записей по какому-либо критерию(частичное совпадение строки, используя between для дат или чисел, in, или операторы <, >, =,) 
+*/
+
+/*
+изменение записей в таблице 
+*/
+
+update post set rating = rating + 10
+where rating between 10 and 30
+
+update det set color = 'розовый'
+where detnumber in (select detnumber from sale where postnumber = 'S1')
+
+update post set rating = rating - 10
+where rating < (select rating from post where postnumber = 's4')
+
+/*
+удаление записей
+*/
+
+DELETE FROM prod WHERE prodnumber between 'J2' and 'J6'
+
+
+/*
+5.Создать 2 выборки из нескольких таблиц по каким-либо критериям. И 1 выборка с использованием подзапросов
+*/
+
+select name, detnumber
+from det
+where detnumber in (
+select distinct detnumber
+from sale
+where prodnumber in (select prodnumber from prod where sity = 'Лондон'))
+
+select prodnumber
+from sale
+where postnumber = 'S1'
+
+select detnumber, prodnumber, sum(qamount)
+from sale
+group by detnumber, prodnumber
+
+select s.qamount, p.sname 
+from sale s, post p
+where p.postnumber = s.postnumber
+
+/*
+6.Скрипт для удаления всех созданных таблиц
+*/
+
