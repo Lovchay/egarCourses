@@ -76,47 +76,58 @@ public class Main {
     }
 
     public static void getArithmeticException() {
-        throw new ArithmeticException();
+         ArithmeticException e = new ArithmeticException();
+         throw e;
     }
 
     public static void getArrayIndexOutOfBoundsException() {
-        throw new ArrayIndexOutOfBoundsException();
+        ArrayIndexOutOfBoundsException e = new ArrayIndexOutOfBoundsException();
+        throw e;
     }
 
     public static void getClassNotFoundException() throws ClassNotFoundException {
-        throw new ClassNotFoundException();
+        ClassNotFoundException e = new ClassNotFoundException();
+        throw e;
     }
 
     public static void getFileNotFoundException() throws FileNotFoundException {
-        throw new FileNotFoundException();
+        FileNotFoundException e = new FileNotFoundException();
+        throw e;
     }
 
     public static void getIOException() throws IOException {
-        throw new IOException();
+        IOException e = new IOException();
+        throw e;
     }
 
     public static void getNoSuchFieldException() throws NoSuchFieldException {
-        throw new NoSuchFieldException();
+        NoSuchFieldException e = new NoSuchFieldException();
+        throw e;
     }
 
     public static void getNoSuchMethodException() throws NoSuchMethodException {
-        throw new NoSuchMethodException();
+        NoSuchMethodException e = new NoSuchMethodException();
+        throw e;
     }
 
     public static void getNullPointerException() {
-        throw new NullPointerException();
+        NullPointerException e = new NullPointerException();
+        throw e;
     }
 
     public static void getNumberFormatException() {
-        throw new NumberFormatException();
+        NumberFormatException e = new NumberFormatException();
+        throw e;
     }
 
     public static void getRuntimeException() {
-        throw new RuntimeException();
+        RuntimeException e = new RuntimeException();
+        throw e;
     }
 
     public static void getStringIndexOutOfBoundsException() {
-        throw new StringIndexOutOfBoundsException();
+        StringIndexOutOfBoundsException e = new StringIndexOutOfBoundsException();
+        throw e;
     }
 
 }
