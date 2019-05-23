@@ -3,20 +3,20 @@ package model;
 public class User {
 
     private Long id;
-    private Long basketId;
     private String login;
     private String password;
     private String nickName;
+    private Long basketId;
 
     public User() {
     }
 
-    public User(Long id, Long basketId, String login, String password, String nickName) {
+    public User(Long id, String login, String password, String nickName, Long basketId) {
         this.id = id;
-        this.basketId = basketId;
         this.login = login;
         this.password = password;
         this.nickName = nickName;
+        this.basketId = basketId;
     }
 
     public Long getId() {
