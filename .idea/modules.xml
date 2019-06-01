@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Shops/Shops.iml" filepath="$PROJECT_DIR$/Shops/Shops.iml" />
       <module fileurl="file://$PROJECT_DIR$/egarCourses.iml" filepath="$PROJECT_DIR$/egarCourses.iml" />
       <module fileurl="file://$PROJECT_DIR$/shop/shop.iml" filepath="$PROJECT_DIR$/shop/shop.iml" />
     </modules>
